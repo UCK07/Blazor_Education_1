@@ -1,0 +1,49 @@
+﻿@page "/education"
+
+
+Course => @course.CourseName
+<br />
+Price : @course.Price
+<br />
+<input type="number" @bind-value="@course.Price" @bind-value:event="oninput" />
+<br />
+<input type="checkbox" @bind-value="@course.IsActive" checked="@(course.IsActive?"checked":null)" />
+<br />
+<span>This Course is @(course.IsActive?"Active":"In Active") </span>
+<br />
+<br />
+<hr />
+<select @bind="defaultSelectValue">
+    @foreach (var item in drops)
+    {
+        <option value="@item.Name" >@item.Name</option>
+    }
+</select>
+<br />
+<span>This Course is name : @defaultSelectValue</span>
+<br />
+<br />
+<EditButtonDeleteComponent Umut="true" ></EditButtonDeleteComponent>
+
+@code {
+    string defaultSelectValue = "You should select";
+
+    List<DropDown> drops = new()
+    {
+        new DropDown  {Id=1,Name="E-Spor",Value="45"},
+        new DropDown  {Id=2,Name="E-Gaming",Value="55"},
+        new DropDown  {Id=3,Name="E-Commerce",Value="65"},
+        new DropDown  {Id=4,Name="Social Media",Value="77"},
+        new DropDown  {Id=5,Name="Dependecy Injection",Value="90"},
+    };
+
+    CourseTraining course = new()
+        {
+            Id = 1,
+            CourseName = "Blazor e-commerce",
+            IsActive = false,
+            Price = 17
+
+        };
+
+}

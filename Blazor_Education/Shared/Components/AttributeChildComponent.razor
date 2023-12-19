@@ -1,0 +1,15 @@
+﻿
+
+<div>
+    <h4 class="text-primary">Attribute Child Component</h4>
+    <input id="courseName" placeholder="@PlaceHolder" required="@Required" maxlength="@Maxlength"/>
+</div>
+
+
+@code {
+    [Parameter] public string PlaceHolder { get; set; }
+    [Parameter] public string Required { get; set; } = "required";
+    [Parameter] public int Maxlength { get; set; }
+
+
+}

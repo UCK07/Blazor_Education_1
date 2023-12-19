@@ -1,0 +1,19 @@
+﻿@page "/parentcomponent"
+
+<h3 style="@Style" class="alert alert-danger">ParentComponent</h3>
+<CascadingValue Value="@Style">
+<ChildComponent Title="This title is passed as child component">
+    <ChildContent>
+        Child2 ye ne yazarsan cıkar 
+    </ChildContent>
+    <Child2Content>
+        Deneme 1 2 
+    </Child2Content>
+</ChildComponent>
+</CascadingValue>
+<br />
+<AttributeChildComponent Maxlength="5"  PlaceHolder="Kurs ismini Gir gardaşş" ></AttributeChildComponent>
+
+@code {
+    public string Style { get; set; } = "color:red";
+}
