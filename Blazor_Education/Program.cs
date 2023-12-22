@@ -1,22 +1,27 @@
 using Blazor_Education.Areas.Identity;
 using Blazor_Education.Data;
-using Microsoft.AspNetCore.Components;
+using DataAccess.Data;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<BlazorCourseContext>(options => {
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ApplicationDbContext"));   //Database
+});
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());   // Mapper
+
+//builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+
+//builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider =>
+//    serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<BlazorEducationContext>();
+builder.Services.AddRazorPages();   
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();

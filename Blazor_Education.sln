@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Education", "Blazor_Education\Blazor_Education.csproj", "{1CE11CF7-B3E5-4AD4-A825-73C19C643061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{632C1E76-72D2-4A7D-AB8F-BD5709971286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{632C1E76-72D2-4A7D-AB8F-BD5709971286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{1D77A44D-D108-4412-9D8A-E1947CEC73DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{632C1E76-72D2-4A7D-AB8F-BD5709971286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632C1E76-72D2-4A7D-AB8F-BD5709971286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632C1E76-72D2-4A7D-AB8F-BD5709971286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D77A44D-D108-4412-9D8A-E1947CEC73DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D77A44D-D108-4412-9D8A-E1947CEC73DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D77A44D-D108-4412-9D8A-E1947CEC73DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D77A44D-D108-4412-9D8A-E1947CEC73DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
