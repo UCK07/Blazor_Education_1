@@ -1,5 +1,7 @@
 using Blazor_Education.Areas.Identity;
 using Blazor_Education.Data;
+using Blazor_Education.Services.Concreates;
+using Blazor_Education.Services.Interfaces;
 using DataAccess.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,12 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlazorCourseContext>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("ApplicationDbContext"));   //Database
 });
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());   // Mapper
+builder.Services.AddScoped<ICourseBlazor, CourseBlazor>();
 
-//builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
 
-//builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider =>
-//    serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<BlazorEducationContext>();
@@ -32,6 +33,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+
 }
 else
 {

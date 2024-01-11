@@ -1,0 +1,47 @@
+﻿@page "/createorupdate"
+
+<h3>CourseCreateOrUpdate</h3>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <EditForm Model="courseMode" OnValidSubmit="CourseCreateOrUpdateM">
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+                <div class="form-group">
+                    <label>Name</label>
+                    <InputText @bind-Value="courseMode.Name" class="form-control"></InputText>
+                    <ValidationMessage For="()=>courseMode.Name"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>CoursePrice</label>
+                    <InputNumber @bind-Value="courseMode.CoursePrice" class="form-control"></InputNumber>
+                    <ValidationMessage For="()=>courseMode.CoursePrice"></ValidationMessage>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <InputTextArea @bind-Value="courseMode.Description" class="form-control"></InputTextArea>
+                        <ValidationMessage For="()=>courseMode.Description"></ValidationMessage>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <InputText @bind-Value="courseMode.Title" class="form-control"></InputText>
+                            <ValidationMessage For="()=>courseMode.Title"></ValidationMessage>
+                            <div class="form-group">
+                                <label>SubTitle</label>
+                                <InputText @bind-Value="courseMode.SubTitle" class="form-control"></InputText>
+                                <ValidationMessage For="()=>courseMode.SubTitle"></ValidationMessage>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button class="btn btn-success">Course Add</button>
+                                <NavLink href="courselist" class="btn btn-danger">Back to Course List</NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+
+
+
