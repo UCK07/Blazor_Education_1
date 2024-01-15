@@ -2,6 +2,7 @@ using Blazor_Education.Areas.Identity;
 using Blazor_Education.Data;
 using Blazor_Education.Services.Concreates;
 using Blazor_Education.Services.Interfaces;
+using Blazored.Toast;
 using DataAccess.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +20,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());   // Ma
 builder.Services.AddScoped<ICourseBlazor, CourseBlazor>();
 
 
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<BlazorEducationContext>();
@@ -26,6 +28,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddBlazoredToast();
 
 var app = builder.Build();
 

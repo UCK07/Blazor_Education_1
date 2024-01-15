@@ -1,17 +1,60 @@
 ﻿@page "/courselist"
 
 
+
 <div class="row mt-4">
 
     <div class="col-3">
 
         <h5>Course List</h5>
-
+        <br />
+        <NavLink href="/createorupdate" class="btn btn-success">Course Add</NavLink>
     </div>
 
-    <div class="col-3">
+    
+</div>
 
-        <NavLink href="/createorupdate" class="btn btn-success">Course Add</NavLink>
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table">
+            <thead class="dropdown-menu-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Is Active</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                 @if (_courseRepository !=null)
+                {
+                    foreach (var item in CourseModelList)
+                    {
+                        <tr>
+                            <th>@item.Name</th>
+                            <td>@item.CoursePrice</td>
+                            <td>@item.Description</td>
+                            <td>@item.Title</td>
+                            @if (item.IsActive)
+                            {
+                                <td>Active</td>
+                            }
+                            else
+                            {
+                                <td>Pasif</td>
+                            }
+                            <td>
+                                <NavLink href="@($"courselist/edit/{item.Id}")" class="btn btn-danger">Edit</NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+                
+                
+            </tbody>
+        </table>
 
     </div>
 </div>
