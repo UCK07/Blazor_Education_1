@@ -1,0 +1,28 @@
+﻿@page "/learnrouting"
+@page "/learn2routing"
+@page "/learnrouting/{param1}"
+@page "/learnrouting/{param1}/{param2}"
+
+<h4>LearnRoutingComponent</h4>
+
+<span> Parametre 1 ==>> @param1</span>
+<span> Parametre 1 ==>> @param2</span>
+
+<button class="btn btn-danger" @onclick="BacktoRouting"> BacktoRouting</button>
+
+
+@code {
+    [Inject]
+    NavigationManager _navigationManager1 { get; set; }
+
+    [Parameter]
+    public string param1 { get; set; }
+    [Parameter]
+    public string param2 { get; set; }
+
+    private void BacktoRouting()
+    {
+        _navigationManager1.NavigateTo("learnrouting/" + param1);
+    }
+
+}
