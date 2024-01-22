@@ -1,0 +1,38 @@
+﻿@page "/radzencourselist"
+@using global::Shared.Dto;
+
+
+<div class="row mt-4">
+
+    <div class="col-3">
+
+        <h5>Course List</h5>
+        <br />
+        <NavLink href="/createorupdate" class="btn btn-success">Course Add</NavLink>
+    </div>
+
+
+</div>
+
+<br />
+<hr />
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="9" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@CourseModelList" TItem="CourseDto" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="CourseDto" Property="Id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
+        @* <RadzenDataGridColumn TItem="CourseDto" Property="ImageBase64" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="80px" TextAlign="TextAlign.Center">
+            <Template Context="_courseRepository">
+                <RadzenImage Path="@_courseRepository.ImageUrl" class="rz-gravatar" AlternateText="@(_courseRepository.Name)" />
+            </Template>
+        </RadzenDataGridColumn> *@
+        <RadzenDataGridColumn TItem="CourseDto" Property="Name" Title="Name" Frozen="true" Width="160px" />
+        <RadzenDataGridColumn TItem="CourseDto" Property="CoursePrice" Title="CoursePrice" Width="160px" />
+        <RadzenDataGridColumn TItem="CourseDto" Property="Description" Title="Description" Width="200px" />
+        <RadzenDataGridColumn TItem="CourseDto" Property="Title" Title="Title" Width="120px" />
+        <RadzenDataGridColumn TItem="CourseDto" Property="IsActive" Title="IsActive" FormatString="{0:d}" Width="160px" />
+        
+   
+    </Columns>
+</RadzenDataGrid>
+

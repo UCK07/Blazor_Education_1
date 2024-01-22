@@ -31,6 +31,11 @@
                                 <ValidationMessage For="()=>courseMode.SubTitle"></ValidationMessage>
                             </div>
                             <br />
+                            @if (Id>0)
+                            {
+                                <InputFile OnChange="ImageUpload"></InputFile>
+                            }
+                            
                             <div class="form-group">
                                 <button class="btn btn-success">Course Add</button>
                                 <NavLink href="courselist" class="btn btn-danger">Back to Course List</NavLink>

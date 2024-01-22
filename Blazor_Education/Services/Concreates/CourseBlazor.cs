@@ -20,8 +20,7 @@ namespace Blazor_Education.Services.Concreates
         public async Task<Result<CourseDto>> CreateAsync(CourseDto courseDto)
         {
             var course = _mapper.Map<CourseDto, Course>(courseDto);
-            //course.CreatedBy = "Şuan Defaultda"; istersen değiştirebilirsin unutma..
-
+            course.CreatedBy = "umutttx"; /*istersen değiştirebilirsin unutma..*/
             var addCourse = await _context.Courses.AddAsync(course);
             await _context.SaveChangesAsync();
             var returnData = _mapper.Map<Course, CourseDto>(addCourse.Entity);
@@ -81,8 +80,8 @@ namespace Blazor_Education.Services.Concreates
                 {
                     var courseDetails = await _context.Courses.FindAsync(courseId);
                     var course = _mapper.Map<CourseDto,Course>(courseDto,courseDetails);
-                    //course.UpdatedBy = "umutttx";
-                    //course.UpdatedDate = DateTime.Now.ToString();         istersen kullanabilirsin 
+                    course.UpdatedBy = "umutttx";
+                    course.UpdatedDate = DateTime.Now.ToString();         
                     var updateCourse = _context.Courses.Update(course);
                     await _context.SaveChangesAsync();
                     var returndata = _mapper.Map<Course, CourseDto>(updateCourse.Entity);

@@ -7,8 +7,7 @@ using DataAccess.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +28,10 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddBlazoredToast();
+builder.Services.AddScoped<IImageUploadService, CloudinaryImageUploadService>();
+builder.Services.AddRadzenComponents();
+
+
 
 var app = builder.Build();
 

@@ -24,5 +24,7 @@ namespace Shared.Dto
         public string? UpdatedBy { get; set; }
         public string? ImageUrl { get; set; }
         public int TotalCount { get; set; }
+        public string ImageBase64 { get; set; }
+        public string CloudUrl { get; set; }
     }
 }
